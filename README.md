@@ -16,6 +16,7 @@ Specifically it contains:
 - Python `dbus` module
 - Python `GObject` module
 - Polybar with the IPC module
+- dbus
 
 ## How it works
 The Python dbus module is used to listen for `PropertiesChanged` events. The playback status updates are used to update the character printed onto polybar using the IPC module.
