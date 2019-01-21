@@ -14,7 +14,7 @@ Specifically it contains:
 ## Dependencies
 - Python 3
 - Python `dbus` module
-- Python `GObject` module
+- Python `GObject3` module
 - Polybar with the IPC module
 - dbus
 
