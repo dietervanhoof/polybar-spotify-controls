@@ -1,1 +1,1 @@
-/usr/bin/python3 ~/scripts/spotify/py_spotify_listener.py
+/usr/bin/env python3 ~/scripts/spotify/py_spotify_listener.py

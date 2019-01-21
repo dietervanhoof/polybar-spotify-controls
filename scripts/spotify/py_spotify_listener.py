@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # Unwrap function: (C)2011-2015 Dennis Kaarsemaker
 # License: GPL3+
 """Receiver related functionality."""
