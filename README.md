@@ -103,6 +103,8 @@ initial = 1
 format-padding = 4
 format-underline = #1db954
 line-size = 1
+; [i3wm only] - Uncomment the below line to focus on Spotify when clicking on the song name (credits to https://github.com/Esya)
+; click-left = i3-msg '[class="Spotify"] focus'
 ~~~
 Add this to the bar you'd like your controls to be on:
 ~~~ ini
