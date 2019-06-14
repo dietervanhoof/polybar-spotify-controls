@@ -63,6 +63,8 @@ format = "%{T3}<label>"
 format-padding = 5
 ; Previous song icon
 exec = echo ""
+; Check if spotify is running before displaying the icon
+exec-if = "pgrep spotify"
 format-underline = #1db954
 line-size = 1
 click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
@@ -74,6 +76,8 @@ format = "%{T3}<label>"
 format-padding = 5
 ; Next song icon
 exec = echo ""
+; Check if spotify is running before displaying the icon
+exec-if = "pgrep spotify"
 format-underline = #1db954
 line-size = 1
 click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
