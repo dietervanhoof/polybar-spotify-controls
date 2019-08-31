@@ -49,9 +49,8 @@ The spotify hook-1 (2) will run another python script which returns the current 
 ### Set up
 - Install all dependencies
 - Copy all scripts to `~/scripts`
-- Have polybar start up on boot and [create a symlink as documented](https://github.com/jaagr/polybar/wiki/Inter-process-messaging) to `/tmp/ipc-bottom`
-- Have the `scripts/spotify/launchlistener.sh` script start up on boot
-- Make sure the bar you want to add it to has [IPC enabled](https://github.com/jaagr/polybar/wiki/Module:-ipc)
+- Have polybar start up on boot- Have the `scripts/spotify/launchlistener.sh` script start up on boot
+- Make sure the bars you want to add it to has [IPC enabled](https://github.com/jaagr/polybar/wiki/Module:-ipc)
 
 ### Adding all modules
 Add all of the desired modules to any bar and modify to your likings. This is my setup:
