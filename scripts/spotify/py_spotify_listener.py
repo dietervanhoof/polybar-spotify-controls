@@ -4,6 +4,7 @@
 """Receiver related functionality."""
 import dbus.service
 import dbus.glib
+from os import system
 from gi.repository import GObject
 import dbus
 
@@ -58,17 +59,14 @@ def event_handler(*args, **kwargs):
     data = unwrap(args)
     if data[1]['PlaybackStatus'] == "Playing":
         print("Music is playing")
-        """ Send IPC hook 2 to the bottom bar pid for module playpause """
-        with open("/tmp/ipc-bottom", "w") as text_file:
-            print("hook:module/playpause2", file=text_file)
+        system("polybar-msg hook playpause 2")
+        """ Send IPC hook 2 to all bars for module playpause """
     if data[1]['PlaybackStatus'] == "Paused":
         print("Music is paused.")
-        """ Send IPC hook 3 to the bottom bar pid for module playpause """
-        with open("/tmp/ipc-bottom", "w") as text_file:
-            print("hook:module/playpause3", file=text_file)
-    """ Send IPC hook 2 to the bottom bar pid for module spotify """
-    with open("/tmp/ipc-bottom", "w") as text_file:
-        print("hook:module/spotify2", file=text_file)
+        """ Send IPC hook 3 to all bars module playpause """
+        system("polybar-msg hook playpause 3")
+    """ Send IPC hook 2 to all bars for module spotify """
+    system("polybar-msg hook spotify 2")
 
 def unwrap(val):
     if isinstance(val, dbus.ByteArray):
