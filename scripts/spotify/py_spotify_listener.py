@@ -57,16 +57,17 @@ def event_handler(*args, **kwargs):
     """arg[1] contains metadata"""
     """arg[1][1] contains PlaybackStatus"""
     data = unwrap(args)
-    if data[1]['PlaybackStatus'] == "Playing":
-        print("Music is playing")
-        system("polybar-msg hook playpause 2")
-        """ Send IPC hook 2 to all bars for module playpause """
-    if data[1]['PlaybackStatus'] == "Paused":
-        print("Music is paused.")
-        """ Send IPC hook 3 to all bars module playpause """
-        system("polybar-msg hook playpause 3")
-    """ Send IPC hook 2 to all bars for module spotify """
-    system("polybar-msg hook spotify 2")
+    if 'spotify' in data[1]['Metadata']['mpris:trackid']:
+        if data[1]['PlaybackStatus'] == "Playing":
+            print("Music is playing")
+            system("polybar-msg hook playpause 2")
+            """ Send IPC hook 2 to all bars for module playpause """
+        if data[1]['PlaybackStatus'] == "Paused":
+            print("Music is paused.")
+            """ Send IPC hook 3 to all bars module playpause """
+            system("polybar-msg hook playpause 3")
+        """ Send IPC hook 2 to all bars for module spotify """
+        system("polybar-msg hook spotify 2")
 
 def unwrap(val):
     if isinstance(val, dbus.ByteArray):
@@ -83,7 +84,7 @@ def unwrap(val):
         return int(val)
     if isinstance(val, dbus.Byte):
         return bytes([int(val)])
-    return val 
+    return val
 
 loop = GObject.MainLoop()
 
